@@ -8,7 +8,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class AddTodosComponent implements OnInit {
   title: string;
 
-  @Output() addTodo : EventEmitter<any> = new EventEmitter()
+  @Output() addTodo: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class AddTodosComponent implements OnInit {
     const todo = {
       title : this.title,
       completed : false
-    }
+    };
     this.addTodo.emit(todo);
   }
 

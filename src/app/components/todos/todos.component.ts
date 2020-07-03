@@ -8,32 +8,31 @@ import {TodoService} from '../../Service/todo.service'
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todo : Todo[];
+  todo: Todo[];
 
-  constructor( private todoService : TodoService) { }
+  constructor( private todoService: TodoService) { }
 
   ngOnInit() {
     this.todoService.getTodos()
         .subscribe(data => {
           this.todo = data;
-    })
+    });
 
   }
 
-  onDeleteTodo(todo:Todo){
+  onDeleteTodo(todo: Todo){
     this.todoService.deleteTodo(todo)
         .subscribe(data => {
            this.todo = this.todo.filter(t => t.id !== todo.id);
          // console.log(data, "left over")
-        })
-    
+        });
   }
 
   addTodo(todo: Todo){
       this.todoService.addTodo(todo)
           .subscribe(res => {
-            this.todo.push(todo)
-          })
+            this.todo.push(todo);
+          });
   }
 
 }
